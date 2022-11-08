@@ -6,21 +6,26 @@ import Entity.Vehicle.Vehicle;
 import java.time.LocalDateTime;
 
 public class Order {
+
     private Client client;
     public Client getClient() {return client;}
-    public void setPassword(Client newProperty){client = newProperty;}
+    public void setClient(Client newProperty){client = newProperty;}
 
     private Employee employee;
-    public Employee getStaff() {return employee;}
-    public void setStaff(Employee newProperty){
+    public Employee getEmployee() {return employee;}
+    public void setEmployee(Employee newProperty){
         employee = newProperty;}
 
     private Vehicle vehicle;
     public Vehicle getVehicle() {return vehicle;}
-    public void setStaff(Vehicle newProperty){vehicle = newProperty;}
+    public void setVehicle(Vehicle newProperty){vehicle = newProperty;}
 
     private LocalDateTime dateOfOrder;
     public LocalDateTime getDateOfOrder() {return dateOfOrder;}
     public void setDateOfOrder(LocalDateTime newProperty){dateOfOrder = newProperty;}
+
+    private boolean executed;
+    public boolean getExecuted() {return executed;}
+    public void setExecuted(boolean newProperty){executed = newProperty;}
 
 }
