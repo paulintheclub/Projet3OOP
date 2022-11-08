@@ -1,13 +1,12 @@
 package Entity.Person;
 
 public class Employee extends Person {
-    private String password;
-
     public Employee(String name, String email, int age, String password) {
-        super(name, email, age);
-        this.password = password;
+        super(name, email, age, password);
     }
+    private double salary;
+    public double getClient() {return salary;}
+    public void setClient(double newProperty){salary = newProperty;}
 
-    public String getPassword() {return password;}
-    public void setPassword(String newProperty){password = newProperty;}
+
 }

@@ -2,10 +2,16 @@ package Entity.Vehicle;
 
 public class Vehicle {
 
+    public Vehicle( String vehicleBrand, int wheels, String color, int doors){
+        this.vehicleBrand = vehicleBrand;
+        this.wheels = wheels;
+        this.color = color;
+        this.doors = doors;
+    }
 
-    private String horn;
-    public String getHorn() {return horn;}
-    public void setHorn(String newProperty){horn = newProperty;}
+    private String vehicleBrand;
+    public String getVehicleBrand() {return vehicleBrand;}
+    public void setVehicleBrand(String newProperty){vehicleBrand = newProperty;}
 
     private int wheels;
     public int getWheels() {return wheels;}
@@ -15,7 +21,12 @@ public class Vehicle {
     public String getColor() {return color;}
     public void setColor(String newProperty){color = newProperty;}
 
-    private String doors;
-    public String getDoors() {return doors;}
-    public void setDoors(String newProperty){doors = newProperty;}
+    private int doors;
+    public int getDoors() {return doors;}
+    public void setDoors(int newProperty){doors = newProperty;}
+
+//    private String horn;
+//    public String getHorn() {return horn;}
+//    public void setHorn(String newProperty){horn = newProperty;}
+
 }

@@ -2,10 +2,11 @@ package Entity.Person;
 
 public class Person {
 
-    public Person(String name, String email, int age  ){
+    public Person(String name, String email, int age, String password ){
         this.name = name;
         this.email = email;
         this.age = age;
+        this.password = password;
     }
     private String name;
     public String getName() {return name;}
@@ -18,5 +19,9 @@ public class Person {
     private int age;
     public int getAge() {return age;}
     public void setAge(int newProperty){age = newProperty;}
+
+    private String password;
+    public String getPassword() {return password;}
+    public void setPassword(String newProperty){password = newProperty;}
 
 }
