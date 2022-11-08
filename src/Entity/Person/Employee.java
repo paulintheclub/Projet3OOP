@@ -8,5 +8,8 @@ public class Employee extends Person {
     public double getClient() {return salary;}
     public void setClient(double newProperty){salary = newProperty;}
 
-
+    @Override
+    public void  Сlothes(){
+        System.out.print("Classic clothes\n");
+    }
 }

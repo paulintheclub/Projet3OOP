@@ -25,8 +25,9 @@ public class Vehicle {
     public int getDoors() {return doors;}
     public void setDoors(int newProperty){doors = newProperty;}
 
-//    private String horn;
-//    public String getHorn() {return horn;}
-//    public void setHorn(String newProperty){horn = newProperty;}
+
+    public void  Horn(){
+        System.out.print("Truu!\n");
+    }
 
 }

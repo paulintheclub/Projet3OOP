@@ -11,4 +11,9 @@ public class Client extends Person {
     public boolean getClient() {return discount;}
     public void setClient(boolean newProperty){discount = newProperty;}
 
+    @Override
+    public void  Сlothes(){
+        System.out.print("Normal clothes\n");
+    }
+
 }

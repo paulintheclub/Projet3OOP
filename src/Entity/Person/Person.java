@@ -24,4 +24,9 @@ public class Person {
     public String getPassword() {return password;}
     public void setPassword(String newProperty){password = newProperty;}
 
+
+    public void  Сlothes(){
+        System.out.print("Plain clothes\n");
+    }
+
 }
