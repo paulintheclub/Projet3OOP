@@ -7,6 +7,13 @@ import java.time.LocalDateTime;
 
 public class Order {
 
+    public Order(Client client, Employee employee, Vehicle vehicle, LocalDateTime dateOfOrder, boolean executed){
+        this.client = client;
+        this.employee = employee;
+        this.vehicle = vehicle;
+        this.dateOfOrder = dateOfOrder;
+        this.executed = executed;
+    }
     private Client client;
     public Client getClient() {return client;}
     public void setClient(Client newProperty){client = newProperty;}

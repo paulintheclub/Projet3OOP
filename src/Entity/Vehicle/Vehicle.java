@@ -1,6 +1,8 @@
 package Entity.Vehicle;
 
 public class Vehicle {
+
+
     private String horn;
     public String getHorn() {return horn;}
     public void setHorn(String newProperty){horn = newProperty;}

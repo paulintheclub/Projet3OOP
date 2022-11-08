@@ -79,6 +79,8 @@ public class Main {
 
     public static void AddOrder() {
         ArrayList<Order> orders = getOrders();
+        Order newOrder = new Order();
+
 
     }
 
