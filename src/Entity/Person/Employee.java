@@ -1,6 +1,6 @@
 package Entity.Person;
 
-public class Employee extends Person {
+public final class Employee extends Person {
     public Employee(String name, String email, int age, String password) {
         super(name, email, age, password);
     }
@@ -9,7 +9,7 @@ public class Employee extends Person {
     public void setClient(double newProperty){salary = newProperty;}
 
     @Override
-    public void  Сlothes(){
+    public final void  Сlothes(){
         System.out.print("Classic clothes\n");
     }
 }

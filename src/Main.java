@@ -14,13 +14,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        InputChek();
+        InputCheck();
     }
 
-    public static void InputChek() {
+    public static void InputCheck() {
         ArrayList<Order> orders = getOrders();
         ArrayList<Employee> employees = getEmployees();
-
+        ArrayList<Client> clients = getClients();
         System.out.print("Select(1-2):\n");
         System.out.print("1. Login as Client\n");
         System.out.print("2. Login as Employee\n");
@@ -35,21 +35,27 @@ public class Main {
         String password =  z.nextLine();
         if (select == 1)
         {
-            LoggingAsClient(login, password, orders);
+            Login(login, clients);
         }
         else
         {
-            LoginAsEmployee(login, password, orders, employees);
+            Login(login, password, orders, employees);
         }
         in.close();
 
     }
 
-    public static void LoggingAsClient(String login, String passwrod, ArrayList<Order> orders) {
-
+    public static void Login(String login,ArrayList<Client> clients) {
+        ArrayList<Order> orders = getOrders();
+        for (Client client : clients)
+        {
+            if (client.getEmail().equals(login)) {
+                ShowOnlyClientOrders(client, orders);
+            }
+        }
     }
 
-    public static void LoginAsEmployee(String login, String password, ArrayList<Order> orders, ArrayList<Employee> employees) {
+    public static void Login(String login, String password, ArrayList<Order> orders, ArrayList<Employee> employees) {
 
         for (Employee employee : employees)
         {
@@ -76,30 +82,30 @@ public class Main {
 
     public  static ArrayList<Order> getOrders() {
         ArrayList<Employee> employees = getEmployees();
+        ArrayList<Client> clients = getClients();
         ArrayList<Order> orders = new ArrayList<Order>();
 
-        Client client1 = new Client("Hope", "hopeislife@gmail.com", 23, "onlyyou");
-        Client client2 = new Client("Kristine", "kris11@gmail.com", 27, "dontknow");
-        Client client3 = new Client("Teodor", "teomyname@gmail.com", 19, "teoprezident");
-        Client client4 = new Client("Franklin", "frankfromgame@gmail.com", 45, "gunsandrosses");
-        Client client5 = new Client("Zuzana", "zuzytree2@gmail.com", 32, "zuzka32");
-        Client client6 = new Client("Viktoria", "victory@gmail.com", 34, "vikitiki");
 //        Client client7 = new Client("Maria", "ohmygod@gmail.com", 26, "mari111");
 //        Client client8 = new Client("Sofia", "sofialikeacity@gmail.com", 51, "sofia22");
 //        Client client9 = new Client("Siargei", "thebest@gmail.com", 33, "hardpassword");
 //        Client client10 = new Client("Tom", "tomandjerry@gmail.com", 18, "jerryloose");
         Truck truck1 = new Truck("Mersedes-Benz", 6, "black", 2);
+
         Truck truck2 = new Truck("Audi", 4, "white", 4);
+
         Bus bus1 = new Bus("BMW", 4, "blue", 4);
         Bus bus2 = new Bus("Skoda", 4, "yellow", 4);
         Sedan sedan1 = new Sedan("Jeep", 4, "green", 2);
         Sedan sedan2 = new Sedan("Volvo", 4, "purple", 2);
-        Order order1 = new Order(client1, employees.get(0), truck1,LocalDateTime.now(),false);
-        Order order2 = new Order(client2, employees.get(1), truck2,LocalDateTime.now(),false);
-        Order order3 = new Order(client3, employees.get(2), bus1,LocalDateTime.now(),false);
-        Order order4 = new Order(client4, employees.get(3), bus2,LocalDateTime.now(),false);
-        Order order5 = new Order(client5, employees.get(4), sedan1,LocalDateTime.now(),false);
-        Order order6 = new Order(client6, employees.get(5), sedan2,LocalDateTime.now(),false);
+        sedan2.Horn();
+        bus2.Horn();
+        truck2.Horn();
+        Order order1 = new Order(clients.get(0), employees.get(0), truck1,LocalDateTime.now(),false);
+        Order order2 = new Order(clients.get(1), employees.get(1), truck2,LocalDateTime.now(),false);
+        Order order3 = new Order(clients.get(2), employees.get(2), bus1,LocalDateTime.now(),false);
+        Order order4 = new Order(clients.get(3), employees.get(3), bus2,LocalDateTime.now(),false);
+        Order order5 = new Order(clients.get(4), employees.get(4), sedan1,LocalDateTime.now(),false);
+        Order order6 = new Order(clients.get(5), employees.get(5), sedan2,LocalDateTime.now(),false);
         orders.add(order1);
         orders.add(order2);
         orders.add(order3);
@@ -111,7 +117,7 @@ public class Main {
 
     public  static ArrayList<Employee> getEmployees() {
         ArrayList<Employee> employees = new ArrayList<Employee>();
-        Employee employee1 = new Employee("Ivan", "kek", 23, "334455");
+        Employee employee1 = new Employee("Ivan", "ivan2@gmail.com", 23, "334455");
         Employee employee2 = new Employee("Pavlo", "pavlo45@gmail.com", 18,"qwerty" );
         Employee employee3 = new Employee("Marek", "marek12@gmail.com", 32,"figa32" );
         Employee employee4 = new Employee("John", "john33@gmail.com", 42,"liljohn" );
@@ -133,7 +139,22 @@ public class Main {
         employees.add(employee10);
         return employees;
     }
-
+    public  static ArrayList<Client> getClients() {
+        ArrayList<Client> clients = new ArrayList<Client>();
+        Client client1 = new Client("Hope", "hope1@gmail.com", 23, "1234");
+        Client client2 = new Client("Kristine", "kris11@gmail.com", 27, "dontknow");
+        Client client3 = new Client("Teodor", "teomyname@gmail.com", 19, "teoprezident");
+        Client client4 = new Client("Franklin", "frankfromgame@gmail.com", 45, "gunsandrosses");
+        Client client5 = new Client("Zuzana", "zuzytree2@gmail.com", 32, "zuzka32");
+        Client client6 = new Client("Viktoria", "victory@gmail.com", 34, "vikitiki");
+        clients.add(client1);
+        clients.add(client2);
+        clients.add(client3);
+        clients.add(client4);
+        clients.add(client5);
+        clients.add(client6);
+        return clients;
+    }
 
     public static void AddOrder(ArrayList<Order> orders, Employee employee) {
 
@@ -258,6 +279,19 @@ public class Main {
             case 3 -> MarkOrderAsCompleted(orders, employee);
         }
         k.close();
+
+    }
+    public static void ShowOnlyClientOrders(Client client, ArrayList<Order> orders) {
+
+        ArrayList<Order> ordersClient = new  ArrayList<Order>();
+        for (Order order: orders) {
+            if (order.getClient().getEmail().equals(client.getEmail()))
+            {
+                ordersClient.add(order);
+            }
+        }
+
+        ShowOrders(ordersClient);
 
     }
     public static void ShowOrders(ArrayList<Order> orders)

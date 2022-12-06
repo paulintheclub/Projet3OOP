@@ -2,7 +2,7 @@ package Entity.Person;
 
 import Entity.Vehicle.Vehicle;
 
-public class Client extends Person {
+public final class Client extends Person {
     public Client(String name, String email, int age, String password) {
         super(name, email, age, password);
     }
@@ -12,7 +12,7 @@ public class Client extends Person {
     public void setClient(boolean newProperty){discount = newProperty;}
 
     @Override
-    public void  Сlothes(){
+    public final void  Сlothes(){
         System.out.print("Normal clothes\n");
     }
 
